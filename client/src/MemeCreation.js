@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const api = process.env.REACT_APP_API_URL;
+
 const MemeCreation = () => {
   const [title, setTitle] = useState('');
   const [imageUrl, setImageUrl] = useState('');
@@ -21,7 +23,7 @@ const MemeCreation = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:5000/meme', {
+      const response = await axios.post(`${api}/meme`, {
         title,
         imageUrl,
         tags: tagsArr
