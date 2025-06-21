@@ -31,7 +31,9 @@ const connectDB = async () => {
 
 // express.json() parses incoming JSON requests and puts the parsed data in req.body
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://memehustle-8ljr.onrender.com'
+}));
 
 app.use((req, res, next) => {
     req.io = io;
